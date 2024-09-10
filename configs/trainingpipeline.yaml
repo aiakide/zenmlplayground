@@ -1,7 +1,7 @@
 settings:
   docker:
     replicate_local_python_environment: "pip_freeze"
-    allow_download_from_code_repository: false
+    allow_download_from_code_repository: False
     apt_packages:
       - git
     #dockerfile: ./docker/Dockerfile
@@ -18,7 +18,7 @@ steps:
 model:
   name: iris_classifier
 
-enable_cache: false
+enable_cache: False
 
 
 parameters:
