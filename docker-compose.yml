@@ -1,0 +1,87 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: airflow
+      MYSQL_USER: airflow
+      MYSQL_PASSWORD: airflow_password
+    ports:
+      - 3306:3306
+
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost","-u","root","-prootpassword"]
+      timeout: 20s
+      retries: 10
+    volumes:
+      - mysql-db-volume:/var/lib/mysql
+
+  registry:
+    build:
+      dockerfile: docker/Dockerfile.registry
+      context: .
+    container_name: registry
+    ports:
+      - "5000:5000"
+    environment:
+      - REGISTRY_AUTH=htpasswd
+      - REGISTRY_AUTH_HTPASSWD_REALM="Registry Realm"
+      - REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd/users.htpasswd
+    volumes:
+      - registry-auth:/auth  # Volume für Authentifizierungsdaten
+      - registry-data:/var/lib/registry  # Persistent storage for registry data
+      - ./scripts/init-registry.sh:/init-registry.sh  # Bind the script into the container
+    entrypoint: /init-registry.sh  # Use the script as entrypoint
+    restart: always
+
+  minio:
+    image: minio/minio
+    container_name: minio
+    entrypoint: /init-minio.sh
+
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9000/minio/health/live" ]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+      start_period: 30s
+    volumes:
+      - minio:/data
+      - ./scripts/init-minio.sh:/init-minio.sh  # Bind the script into the container
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+  zenml:
+    image: zenmldocker/zenml-server
+    container_name: zenml
+    ports:
+      - "8080:8080"
+    environment:
+      - ZENML_STORE_URL=mysql://root:rootpassword@mysql/zenml
+      - ZENML_SERVER_AUTO_ACTIVATE=1
+      - ZENML_DEFAULT_USER_NAME=admin
+      - ZENML_DEFAULT_USER_PASSWORD=password
+    links:
+      - mysql
+      - minio
+      - registry
+    depends_on:
+      mysql:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      registry:
+        condition: service_started
+    restart: on-failure
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  mysql-db-volume:
+  minio:
+  registry-data:
+  registry-auth:

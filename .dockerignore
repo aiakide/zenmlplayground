@@ -1,0 +1,7 @@
+.venv
+configs
+docker-compose.yml
+docker
+scripts
+Makefile
+dist

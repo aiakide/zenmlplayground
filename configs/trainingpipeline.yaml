@@ -1,0 +1,21 @@
+settings:
+  docker:
+    dockerfile: ./docker/Dockerfile
+    build_context_root: .
+  orchestrator.local_docker:
+      run_args:
+        network_mode: "host"
+      memory: 8
+steps:
+  new_svc_trainer:
+    settings:
+      orchestrator.local_docker:
+        cpus: 8
+model:
+  name: iris_classifier
+
+enable_cache: false
+
+
+parameters:
+    gamma: 0.01

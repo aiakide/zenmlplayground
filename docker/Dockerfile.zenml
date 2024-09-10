@@ -1,0 +1,3 @@
+FROM zenmldocker/zenml-server
+RUN mkdir /zenml/airflow
+RUN chmod -R 777 /zenml/airflow
