@@ -39,5 +39,11 @@ zenml-local-image-builder:
 zenml-register-stack:
 	zenml stack register docker-minio -o docker -a minio_store -c local-docker-registry -i local-image-builder
 
+zenml-connect-github-repo:
+	zenml code-repository register ${REPO_NAME} --type=github \
+	--url=https://github.com/${GITHUB_USERNAME}/${REPO_NAME}.git \
+	--owner=${GITHUB_USERNAME} --repository=${REPO_NAME} \
+	--token=${GITHUB_TOKEN}
+
 zenml-create-service-account:
 	zenml service-account create local-login
