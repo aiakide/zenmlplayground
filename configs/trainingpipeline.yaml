@@ -1,7 +1,10 @@
 settings:
   docker:
-    dockerfile: ./docker/Dockerfile
-    build_context_root: .
+    replicate_local_python_environment: "pip_freeze"
+    apt_packages:
+      - git
+    #dockerfile: ./docker/Dockerfile
+    #build_context_root: .
   orchestrator.local_docker:
       run_args:
         network_mode: "host"
