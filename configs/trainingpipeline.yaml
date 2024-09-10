@@ -1,7 +1,7 @@
 settings:
   docker:
     replicate_local_python_environment: "pip_freeze"
-    allow_download_from_code_repository: "false"
+    allow_download_from_code_repository: false
     apt_packages:
       - git
     #dockerfile: ./docker/Dockerfile
