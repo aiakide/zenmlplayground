@@ -1,11 +1,8 @@
 settings:
   docker:
     replicate_local_python_environment: "pip_freeze"
-    allow_download_from_code_repository: False
     apt_packages:
       - git
-    #dockerfile: ./docker/Dockerfile
-    #build_context_root: .
   orchestrator.local_docker:
       run_args:
         network_mode: "host"
