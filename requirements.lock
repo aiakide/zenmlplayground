@@ -147,6 +147,7 @@ multidict==6.1.0
 numpy==2.1.1
     # via contourpy
     # via matplotlib
+    # via pandas
     # via scikit-learn
     # via scipy
 orjson==3.10.7
@@ -155,6 +156,8 @@ packaging==24.1
     # via matplotlib
     # via sphinx
     # via zenml
+pandas==2.2.2
+    # via zenmlplayground
 parso==0.8.4
     # via jedi
 passlib==1.7.4
@@ -202,12 +205,15 @@ pyparsing==3.1.4
 python-dateutil==2.9.0.post0
     # via botocore
     # via matplotlib
+    # via pandas
     # via zenml
 python-dotenv==1.0.1
     # via pydantic-settings
     # via uvicorn
 python-multipart==0.0.9
     # via zenml
+pytz==2024.2
+    # via pandas
 pyyaml==6.0.2
     # via uvicorn
     # via zenml
@@ -287,6 +293,8 @@ typing-extensions==4.12.2
     # via pygithub
     # via sqlalchemy
     # via uvicorn
+tzdata==2024.1
+    # via pandas
 urllib3==2.2.3
     # via botocore
     # via docker
