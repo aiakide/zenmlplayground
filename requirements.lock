@@ -10,7 +10,7 @@
 #   universal: false
 
 -e file:.
-aiobotocore==2.14.0
+aiobotocore==2.15.0
     # via s3fs
 aiohappyeyeballs==2.4.0
     # via aiohttp
@@ -42,22 +42,19 @@ babel==2.16.0
 bcrypt==4.0.1
     # via passlib
     # via zenml
-botocore==1.35.7
+botocore==1.35.16
     # via aiobotocore
 cachetools==5.5.0
     # via ipinfo
-certifi==2024.7.4
+certifi==2024.8.30
     # via requests
-cffi==1.17.0
+cffi==1.17.1
     # via cryptography
     # via pynacl
 charset-normalizer==3.3.2
     # via requests
 click==8.1.3
-    # via click-params
     # via uvicorn
-    # via zenml
-click-params==0.3.0
     # via zenml
 cloudpickle==2.2.1
     # via zenml
@@ -65,13 +62,12 @@ comm==0.2.2
     # via ipywidgets
 contourpy==1.3.0
     # via matplotlib
-cryptography==43.0.0
+cryptography==43.0.1
     # via pyjwt
 cycler==0.12.1
     # via matplotlib
 decorator==5.1.1
     # via ipython
-    # via validators
 deprecated==1.2.14
     # via pygithub
 distro==1.9.0
@@ -84,7 +80,7 @@ docutils==0.16
 exceptiongroup==1.2.2
     # via anyio
     # via ipython
-executing==2.0.1
+executing==2.1.0
     # via stack-data
 fastapi==0.110.0
     # via zenml
@@ -93,7 +89,7 @@ fonttools==4.53.1
 frozenlist==1.4.1
     # via aiohttp
     # via aiosignal
-fsspec==2024.6.1
+fsspec==2024.9.0
     # via s3fs
 futures==3.0.5
     # via s3
@@ -101,23 +97,21 @@ gitdb==4.0.11
     # via gitpython
 gitpython==3.1.43
     # via zenml
-greenlet==3.0.3
+greenlet==3.1.0
     # via sqlalchemy
 h11==0.14.0
     # via uvicorn
-httplib2==0.19.1
-    # via zenml
 httptools==0.6.1
     # via uvicorn
-idna==3.8
+idna==3.10
     # via anyio
     # via requests
     # via yarl
 imagesize==1.4.1
     # via sphinx
-ipinfo==5.0.1
+ipinfo==5.1.1
     # via zenml
-ipython==8.26.0
+ipython==8.27.0
     # via ipywidgets
 ipywidgets==8.1.5
     # via rich
@@ -132,7 +126,7 @@ joblib==1.4.2
     # via scikit-learn
 jupyterlab-widgets==3.0.13
     # via ipywidgets
-kiwisolver==1.4.5
+kiwisolver==1.4.7
     # via matplotlib
 mako==1.3.5
     # via alembic
@@ -147,23 +141,19 @@ matplotlib-inline==0.1.7
     # via ipython
 mdurl==0.1.2
     # via markdown-it-py
-multidict==6.0.5
+multidict==6.1.0
     # via aiohttp
     # via yarl
-numpy==1.26.4
+numpy==2.1.1
     # via contourpy
     # via matplotlib
-    # via pandas
     # via scikit-learn
     # via scipy
-    # via zenml
 orjson==3.10.7
     # via zenml
 packaging==24.1
     # via matplotlib
     # via sphinx
-    # via zenml
-pandas==2.2.2
     # via zenml
 parso==0.8.4
     # via jedi
@@ -185,14 +175,14 @@ pure-eval==0.2.3
     # via stack-data
 pycparser==2.22
     # via cffi
-pydantic==2.7.4
+pydantic==2.8.2
     # via fastapi
     # via pydantic-settings
     # via sqlmodel
     # via zenml
-pydantic-core==2.18.4
+pydantic-core==2.20.1
     # via pydantic
-pydantic-settings==2.2.1
+pydantic-settings==2.5.2
     # via zenml
 pygithub==2.4.0
     # via zenmlplayground
@@ -207,22 +197,17 @@ pymysql==1.1.1
     # via zenml
 pynacl==1.5.0
     # via pygithub
-pyparsing==2.4.7
-    # via httplib2
+pyparsing==3.1.4
     # via matplotlib
-    # via zenml
 python-dateutil==2.9.0.post0
     # via botocore
     # via matplotlib
-    # via pandas
     # via zenml
 python-dotenv==1.0.1
     # via pydantic-settings
     # via uvicorn
 python-multipart==0.0.9
     # via zenml
-pytz==2024.1
-    # via pandas
 pyyaml==6.0.2
     # via uvicorn
     # via zenml
@@ -232,24 +217,24 @@ requests==2.32.3
     # via pygithub
     # via s3
     # via sphinx
-rich==13.8.0
+rich==13.8.1
     # via zenml
 s3==3.0.0
     # via zenmlplayground
-s3fs==2024.6.1
+s3fs==2024.9.0
     # via zenmlplayground
-scikit-learn==1.5.1
+scikit-learn==1.5.2
     # via zenmlplayground
 scipy==1.14.1
     # via scikit-learn
 secure==0.3.0
     # via zenml
-setuptools==74.0.0
+setuptools==75.0.0
+    # via zenml
     # via zenmlplayground
 six==1.16.0
     # via asttokens
     # via python-dateutil
-    # via validators
 smmap==5.0.1
     # via gitdb
 sniffio==1.3.1
@@ -272,7 +257,7 @@ sphinxcontrib-qthelp==2.0.0
     # via sphinx
 sphinxcontrib-serializinghtml==2.0.0
     # via sphinx
-sqlalchemy==2.0.32
+sqlalchemy==2.0.34
     # via alembic
     # via sqlalchemy-utils
     # via sqlmodel
@@ -296,14 +281,13 @@ typing-extensions==4.12.2
     # via anyio
     # via fastapi
     # via ipython
+    # via multidict
     # via pydantic
     # via pydantic-core
     # via pygithub
     # via sqlalchemy
     # via uvicorn
-tzdata==2024.1
-    # via pandas
-urllib3==2.2.2
+urllib3==2.2.3
     # via botocore
     # via docker
     # via pygithub
@@ -312,8 +296,6 @@ uvicorn==0.30.6
     # via zenml
 uvloop==0.20.0
     # via uvicorn
-validators==0.18.2
-    # via click-params
 watchfiles==0.24.0
     # via uvicorn
 wcwidth==0.2.13
@@ -327,7 +309,7 @@ wrapt==1.16.0
     # via deprecated
 xmltodict==0.13.0
     # via s3
-yarl==1.9.4
+yarl==1.11.1
     # via aiohttp
-zenml==0.65.0
+zenml==0.66.0
     # via zenmlplayground

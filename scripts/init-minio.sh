@@ -16,8 +16,14 @@ mc alias set myminio http://0.0.0.0:9000 $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD
 if ! mc ls myminio/zenml > /dev/null 2>&1; then
   mc mb myminio/zenml
 fi
-
 echo "Bucket 'zenml' erstellt oder existierte bereits."
+
+# Erstelle den Bucket 'zenml', wenn er noch nicht existiert
+if ! mc ls myminio/mlflow > /dev/null 2>&1; then
+  mc mb myminio/mlflow
+fi
+echo "Bucket 'mllfow' erstellt oder existierte bereits."
+
 
 # Halte den MinIO-Server am Laufen
 wait $MINIO_PID

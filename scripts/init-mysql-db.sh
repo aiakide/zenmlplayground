@@ -8,10 +8,10 @@ done
 
 # Verbinde dich mit MySQL und führe die SQL-Befehle aus
 mysql -u root -p"$MYSQL_ROOT_PASSWORD" <<-EOSQL
-CREATE DATABASE IF NOT EXISTS airflow;
-CREATE USER IF NOT EXISTS 'airflow'@'%' IDENTIFIED BY 'airflow_password';
-GRANT ALL PRIVILEGES ON airflow.* TO 'airflow'@'%';
+CREATE DATABASE IF NOT EXISTS mlflow;
+CREATE USER IF NOT EXISTS 'mlflow'@'%' IDENTIFIED BY 'mlflow_password';
+GRANT ALL PRIVILEGES ON mlflow.* TO 'mlflow'@'%';
 FLUSH PRIVILEGES;
 EOSQL
 
-echo "Datenbank 'airflow' und Benutzer 'airflow' wurden erfolgreich erstellt oder existierten bereits."
+echo "Datenbank 'mlflow' und Benutzer 'mlflow' wurden erfolgreich erstellt oder existierten bereits."

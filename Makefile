@@ -45,5 +45,10 @@ zenml-connect-github-repo:
 	--owner=${GITHUB_USERNAME} --repository=${REPO_NAME} \
 	--token=${GITHUB_TOKEN}
 
+zenml-connect-gitlab-repo:
+	zenml code-repository register zenmlplayground --type=gitlab \
+	--url=https://gitlab.com/nils.uhrberg/zenmlplayground.git --group=nils.uhrberg --project=zenmlplayground \
+	--token=glpat-LyJUWrJ-W1ZJNqdsi5G-
+
 zenml-create-service-account:
-	zenml service-account create local-login
+	zenml service-account create nils

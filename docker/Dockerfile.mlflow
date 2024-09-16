@@ -1,0 +1,2 @@
+FROM codecentric/from-jupyter-to-production-mlflow:latest
+RUN pip install pymysql cryptography
